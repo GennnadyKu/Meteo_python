@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.filedialog import FileDialog
 import requests
 import numpy as np
 import pandas as pd
@@ -50,17 +51,12 @@ class Meteo_st:
         temp_dict = self.r_field(field)
         r_data = str(list(temp_dict.values())[0])
         return r_data
-    
+
     #Read data from single field of channel with HTTP GET
     def r_field(self, field):
-        if field == 1:
-            thingspeak_c2 = "1" # number of field  Thingspeak
-        
-        elif field == 2:
-            thingspeak_c2 = "2"
-        else:
-            thingspeak_c2 = "3"
-        thingspeak_m =  thingspeak_c1 + thingspeak_c2 + thingspeak_c3 # form URL(last result)     
+        s_field = str(field) 
+        #thingspeak_m =  thingspeak_c1 + thingspeak_c2 + thingspeak_c3 # form URL(last result)  
+        thingspeak_m = f"https://api.thingspeak.com/channels/1283823/fields/{s_field}.csv?results=1&timezone=Europe/Kiev"  
         response = requests.get(thingspeak_m)
         #response2 = requests.get("https://api.thingspeak.com/channels/1283823/fields/1.csv?results=1&timezone=Europe/Kiev")
         my_data = StringIO(response.text) #
@@ -77,6 +73,7 @@ class Meteo_st:
 thingspeak_c1 = "https://api.thingspeak.com/channels/1283823/fields/"
 #thingspeak_c2 = "1"
 thingspeak_c3 = ".csv?results=1&timezone=Europe/Kiev"
+ 
 #thingspeak_m =  thingspeak_c1 + thingspeak_c2 + thingspeak_c3      
  
 root = Tk()
