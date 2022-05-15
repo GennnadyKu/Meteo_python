@@ -69,13 +69,7 @@ class Meteo_st:
         return(ret_dict) # return a dictionary in the form date-time : value       
         
         
-# URL for Read data from single field of channel with HTTP GET (last result)        
-thingspeak_c1 = "https://api.thingspeak.com/channels/1283823/fields/"
-#thingspeak_c2 = "1"
-thingspeak_c3 = ".csv?results=1&timezone=Europe/Kiev"
- 
-#thingspeak_m =  thingspeak_c1 + thingspeak_c2 + thingspeak_c3      
- 
+
 root = Tk()
 root.title("Meteo Izmail now")
 
