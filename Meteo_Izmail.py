@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter.filedialog import FileDialog
+#from tkinter.filedialog import FileDialog
 import requests
 import numpy as np
 import pandas as pd
@@ -75,7 +75,6 @@ class TimeLabel:
         self.lab.after(600000, self.update_data)
 
 
-  
 root = Tk()
 root.title("Meteo Izmail now")
 
